@@ -1,6 +1,6 @@
-package tests;
+package com.projectname.tests;
 
-import com.paysuper.appmanager.pages.PayFormPage;
+import com.projectname.appmanager.pages.*;
 import org.testng.annotations.Test;
 
 
