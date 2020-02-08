@@ -1,6 +1,6 @@
 package com.projectname.tests.suite;
 
-import com.paysuper.tests.TestBase;
+import com.projectname.tests.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;

@@ -1,6 +1,6 @@
 package com.projectname.tests;
 
-import com.projectname.appmanager.ApplicationManager;
+import com.projectname.appmanager.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
