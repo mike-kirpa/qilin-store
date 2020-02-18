@@ -8,7 +8,7 @@ import java.util.Properties;
 public class GetProperties {
     String filename;
     //файл, который хранит свойства нашего проекта
-    public Properties properties = new Properties();
+    public static Properties properties = new Properties();
 
     public GetProperties(String filename)  {
         File file = new File("src/test/resources/EnvironmentVariables/" + filename +".properties");
@@ -20,7 +20,17 @@ public class GetProperties {
         }
     }
 
-    public String value (String key){
+    public static String value (String key){
         return properties.getProperty(key);
+    }
+
+    public static String getPathFor(String file) {
+        // Using substring for full path to remove first slash.
+        // Sikuli bug on Windows
+        return ClassLoader.getSystemResource(file).getPath().toString().substring(1);
+    }
+
+    public static String path(String file) {
+        return getPathFor(file);
     }
 }
