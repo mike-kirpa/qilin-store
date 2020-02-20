@@ -14,14 +14,14 @@ public class AbstractAppPage {
     private static Logger log = Logger.getLogger(AbstractAppPage.class.getName());
 
     public static Pattern logoRamblerGames = new Pattern(GetProperties.path("app_img/logo_rambler_games.png"));
-    public static Pattern AlphaChanel = new Pattern(GetProperties.path("app_img/alpha_chanel.png"));
-    public static Pattern BetaChanel = new Pattern(GetProperties.path("app_img/beta_chanel.png"));
+    public static Pattern AlphaChanel = new Pattern(GetProperties.path("app_img/alpha_chanel.png"));    public static Pattern BetaChanel = new Pattern(GetProperties.path("app_img/beta_chanel.png"));
     public static Pattern LatestChanel = new Pattern(GetProperties.path("app_img/latest_chanel.png"));
     public static Pattern AlphaChanekInList = new Pattern(GetProperties.path("app_img/alpha_chanel_in_list.png"));
     public static Pattern BetaChanekInList = new Pattern(GetProperties.path("app_img/beta_chanel_in_list.png"));
     public static Pattern LatestChanekInList = new Pattern(GetProperties.path("app_img/latest_chanel_in_list.png"));
     public static Pattern DownloadAndInstallButton = new Pattern(GetProperties.path("app_img/download_and_install.png"));
     public static Pattern DownloadAndInstall2RowsButton = new Pattern(GetProperties.path("app_img/download_and_install_2rows.png"));
+    public static Pattern PopularTitle = new Pattern(GetProperties.path("app_img/popular_title.png"));
 
     protected final static int WIN_TIMEOUT = Integer.parseInt(GetProperties.value("window.timeout"));
     protected final static int CTL_TIMEOUT = Integer.parseInt(GetProperties.value("control.timeout"));
@@ -54,6 +54,14 @@ public class AbstractAppPage {
             return true;
     }
 
+    public static boolean waitPagePresent(Pattern pattern) throws FindFailed {
+        while(true){
+            if(getDriver().exists(pattern) != null){getDriver().wait(1.00);}
+            else break;
+        }
+        return true;
+    }
+
 
     public static boolean isPageLoaded(Pattern pattern) throws FindFailed {
         try{
@@ -67,7 +75,8 @@ public class AbstractAppPage {
 
     public static void clickOnElement(Pattern pattern) throws FindFailed {
         try{
-            getDriver().click(pattern, WIN_TIMEOUT);
+            getDriver().wait(pattern, WIN_TIMEOUT);
+            getDriver().click(pattern);
             log.info("Click on " + pattern.toString() + " element");
         } catch (FindFailed e) {
             log.info("I can'r click on" + pattern.toString() + " element");

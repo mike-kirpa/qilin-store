@@ -9,13 +9,14 @@ public class MainAppPage extends AbstractAppPage{
 
     public MainAppPage(){
         try {
-            AbstractAppPage.isPageLoaded(logoRamblerGames);
+            AbstractAppPage.isPageLoaded(PopularTitle);
         } catch (FindFailed findFailed) {
             findFailed.printStackTrace();
         }
     }
 
     public void clickOnAlphaChanelButton() throws FindFailed {
+
         AbstractAppPage.clickOnElement(AlphaChanel);
     }
     public void clickOnBetaChanelButton() throws FindFailed {
@@ -38,9 +39,13 @@ public class MainAppPage extends AbstractAppPage{
         else AbstractAppPage.clickOnElement(DownloadAndInstallButton);
     }
     public boolean isMainPageLoaded() throws FindFailed {
-        return AbstractAppPage.isPageLoaded(logoRamblerGames);
+        return AbstractAppPage.isPageLoaded(PopularTitle);
     }
     public void waitWhilePageNotPresent() throws FindFailed {
-        AbstractAppPage.waitWhilePageNotPresent(logoRamblerGames);
+        AbstractAppPage.waitWhilePageNotPresent(PopularTitle);
+    }
+
+    public void  waitPagePresent() throws FindFailed {
+        AbstractAppPage.isPageLoaded(logoRamblerGames);
     }
 }

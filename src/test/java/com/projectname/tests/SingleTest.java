@@ -16,11 +16,11 @@ import java.io.IOException;
 public class SingleTest extends TestBase {
 
     @Test()
-    public void test() throws InterruptedException, IOException, FindFailed {
+    public void test() throws  IOException, FindFailed {
         String absolutePath = app.downloadAFile.downloadUrlAsFile(app.getProperties.value("DonloadURL"), app.getProperties.value("DownloadFileName"), app.getProperties.value("DownloadFolder"));
         App.open(absolutePath);
         MainAppPage mainAppPage = new MainAppPage();
-        while (System.currentTimeMillis() / 1000L < 1582156800) {
+        while (System.currentTimeMillis()/1000L < 1583193600) {
             mainAppPage.clickOnAlphaChanelButton();
             mainAppPage.clickOnBetaChanelInList();
             mainAppPage.clickOnDownLoadAndInstallButton();
